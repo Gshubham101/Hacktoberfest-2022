@@ -1,0 +1,11 @@
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+categorical_features = ["Make", "Colour", "Doors"]
+one_hot = OneHotEncoder()
+transformer = ColumnTransformer([("one_hot", 
+                                 one_hot, 
+                                 categorical_features)],
+                                 remainder="passthrough")
+transformed_X = transformer.fit_transform(X)
+transformed_X
